@@ -12,7 +12,7 @@ struct Capstone_AveryApp: App {
     var body: some Scene {
         WindowGroup {
             ContentView()
-        }
+        }.windowStyle(.plain)
 
         ImmersiveSpace(id: "ImmersiveSpace") {
             ImmersiveView()

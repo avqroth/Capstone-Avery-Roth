@@ -20,9 +20,7 @@ struct ContentView: View {
     var body: some View {
         VStack {
             NavigationStack {
-                Text("The Solar System")
-                    .font(Font.custom("Avenir", size: 100))
-                    .padding(.top)
+                NavigationArea()
             }
 
 
