@@ -9,7 +9,7 @@ import SwiftUI
 
 struct SystemArea: View {
     var body: some View {
-        Text("System Area")
+        Text("")
     }
 }
 

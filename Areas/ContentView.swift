@@ -10,24 +10,20 @@ import RealityKit
 import RealityKitContent
 
 struct ContentView: View {
+    let planetModel: PlanetModel
+    var planets: PlanetView
 
     @State private var showImmersiveSpace = false
     @State private var immersiveSpaceIsShown = false
-
     @Environment(\.openImmersiveSpace) var openImmersiveSpace
     @Environment(\.dismissImmersiveSpace) var dismissImmersiveSpace
-
+    
     var body: some View {
         VStack {
             NavigationStack {
-                NavigationArea()
-            }
-
-
+                NavigationArea(planetModel: planetModel, planets: planets)
             }
         }
     }
-
-#Preview(windowStyle: .automatic) {
-    ContentView()
 }
+

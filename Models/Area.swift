@@ -10,16 +10,8 @@ import Foundation
 enum Area : String, Identifiable, CaseIterable, Equatable
 {
 
-    case thePlanets, theSystem
+    case planets, system
     var id: Self { self }
     var name: String { rawValue.capitalized }
-
-    var title: String {
-        switch self {
-            case .thePlanets:
-                "The Planets"
-            case .theSystem:
-                "The System"
-        }
     }
-}
+
