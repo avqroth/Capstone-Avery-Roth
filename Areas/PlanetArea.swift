@@ -12,6 +12,7 @@ struct PlanetArea: View {
     var planetModel: PlanetModel
     var planetView: PlanetView
     var planets: [Planet]
+    
 
     var body: some View {
         VStack {
@@ -19,18 +20,13 @@ struct PlanetArea: View {
                 NavigationSplitView {
                     List(planetView.planets, selection: $selectedPlanet) { planet in
                         NavigationLink(destination: {
-                            if let selectedPlanet = selectedPlanet {
-                                PlanetView(planet: selectedPlanet, planetModel: planetModel)
-                            } else {
-                                Text("Pick a planet to learn more!")
-                            }
                         }) {
                             Text(planet.planetName)
                         }
                     }
                 } detail: {
-                    if let selectedPlanet = selectedPlanet {
-                        PlanetView(planet: selectedPlanet, planetModel: planetModel)
+                    if selectedPlanet != nil {
+                        PlanetView(planet: Planet(planetName: "", planetInfo: ""), planetModel: planetModel, planets: [])
                     } else {
                         Text("Pick a planet to learn more!")
                     }

@@ -10,6 +10,7 @@ import SwiftUI
 struct NavigationArea: View {
     var planetModel: PlanetModel
     var planetView: PlanetView
+    var planets: [Planet]
 
     var body: some View {
         VStack {
