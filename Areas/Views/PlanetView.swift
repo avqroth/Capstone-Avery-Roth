@@ -10,10 +10,10 @@ import RealityKit
 import RealityKitContent
 
 struct PlanetView: View {
-    let planet: Planet
-    let planetModel: PlanetModel
+    var planet: Planet
+    var planetModel = PlanetModel()
 
-    let planets = [
+    var planets = [
         Planet(planetName: "Sun", planetInfo: """
                The Sun is the largest object in our solar system. Its diameter is about 865,000 miles (1.4 million kilometers). Its gravity holds the solar system together, keeping everything from the biggest planets to the smallest bits of debris in orbit around it.
                """),
@@ -51,15 +51,12 @@ struct PlanetView: View {
                """)
     ]
 
-    let planetModels = [
-        PlanetModel()
-    ]
-
     var body: some View {
         VStack {
             Text(planet.planetName)
                 .font(Font.custom("Avneir", size: 40))
             Text(planet.planetInfo)
+            Model3D(named: planetModel.sun, bundle: realityKitContentBundle)
             Spacer()
         }
     }

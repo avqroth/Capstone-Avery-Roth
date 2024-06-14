@@ -10,16 +10,25 @@ import RealityKit
 import RealityKitContent
 
 struct PlanetArea: View {
-    @State var selectedPlanet: Planet? = nil
-    let planetModel: PlanetModel
-    var planets: PlanetView
+    @State private var selectedPlanet: Planet? = nil
+    var planetModel: PlanetModel
+    var planetView: PlanetView
+    var planets: [Planet]
 
     var body: some View {
         VStack {
             TabView {
                 NavigationSplitView {
-                    List (planets.planets, selection: $selectedPlanet) { planet in
-                        NavigationLink(planet.planetName, value: planet)
+                    List(planetView.planets, selection: $selectedPlanet) { planet in
+                        NavigationLink(destination: {
+                            if let selectedPlanet = selectedPlanet {
+                                PlanetView(planet: selectedPlanet, planetModel: planetModel)
+                            } else {
+                                Text("Pick a planet to learn more!")
+                            }
+                        }) {
+                            Text(planet.planetName)
+                        }
                     }
                 } detail: {
                     if let selectedPlanet = selectedPlanet {
@@ -32,8 +41,3 @@ struct PlanetArea: View {
         }
     }
 }
-
-
-//#Preview {
-//    PlanetArea()
-//}

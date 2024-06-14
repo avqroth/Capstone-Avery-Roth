@@ -11,7 +11,7 @@ import SwiftUI
 struct Capstone_AveryApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            ContentView(planetModel: PlanetModel(), planetView: PlanetView(planet: Planet(planetName: "", planetInfo: "")))
         }.windowStyle(.plain)
 
         ImmersiveSpace(id: "ImmersiveSpace") {

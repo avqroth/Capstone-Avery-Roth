@@ -8,8 +8,8 @@
 import SwiftUI
 
 struct NavigationArea: View {
-    let planetModel: PlanetModel
-    let planets: PlanetView
+    var planetModel: PlanetModel
+    var planetView: PlanetView
 
     var body: some View {
         VStack {
@@ -21,7 +21,7 @@ struct NavigationArea: View {
                     NavigationLink {
 
                         if area == Area.planets {
-                            PlanetArea(planetModel: planetModel, planets: planets)
+                            PlanetArea(selectedPlanet: Planet?, planetModel: PlanetModel(), planetView: PlanetView, planets: [])
                         }
                         else if area == Area.system {
                             SystemArea()

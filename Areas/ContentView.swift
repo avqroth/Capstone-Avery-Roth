@@ -10,8 +10,8 @@ import RealityKit
 import RealityKitContent
 
 struct ContentView: View {
-    let planetModel: PlanetModel
-    var planets: PlanetView
+    var planetModel: PlanetModel
+    var planetView: PlanetView
 
     @State private var showImmersiveSpace = false
     @State private var immersiveSpaceIsShown = false
@@ -21,7 +21,7 @@ struct ContentView: View {
     var body: some View {
         VStack {
             NavigationStack {
-                NavigationArea(planetModel: planetModel, planets: planets)
+                NavigationArea(planetModel: planetModel, planetView: planetView)
             }
         }
     }
