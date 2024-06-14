@@ -7,11 +7,18 @@
 
 import Foundation
 
-enum Area : String, Identifiable, CaseIterable, Equatable {
+enum Area : String, CaseIterable, Identifiable {
+    var id: String { self.rawValue }
     case planets
     case system
 
-    var id: String { self.rawValue }
-    var name: String { rawValue.capitalized }
+    var name: String {
+        switch self {
+        case .planets:
+            return "Planets"
+        case .system:
+            return "System"
+        }
     }
+}
 

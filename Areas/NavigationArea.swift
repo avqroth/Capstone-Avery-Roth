@@ -18,16 +18,7 @@ struct NavigationArea: View {
 
             HStack(spacing: 25) {
                 ForEach(Area.allCases) { area in
-                    NavigationLink {
-
-                        if area == Area.planets {
-                            PlanetArea(selectedPlanet: Planet?, planetModel: PlanetModel(), planetView: PlanetView, planets: [])
-                        }
-                        else if area == Area.system {
-                            SystemArea()
-                        }
-
-                    } label: {
+                    NavigationLink(destination: destinationView(for: area)) {
                         Label(area.name, systemImage: "chevron.right")
                             .monospaced()
                             .font(.title)
@@ -35,6 +26,16 @@ struct NavigationArea: View {
                     .controlSize(.extraLarge)
                 }
             }
+        }
+    }
+
+    @ViewBuilder
+    private func destinationView(for area: Area) -> some View {
+        switch area {
+        case .planets:
+            PlanetArea(planetModel: planetModel, planetView: planetView, planets: [])
+        case .system:
+            SystemArea()
         }
     }
 }

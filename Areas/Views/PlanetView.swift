@@ -13,7 +13,7 @@ struct PlanetView: View {
     var planet: Planet
     var planetModel = PlanetModel()
 
-    var planets = [
+    var planets: [Planet] = [
         Planet(planetName: "Sun", planetInfo: """
                The Sun is the largest object in our solar system. Its diameter is about 865,000 miles (1.4 million kilometers). Its gravity holds the solar system together, keeping everything from the biggest planets to the smallest bits of debris in orbit around it.
                """),
