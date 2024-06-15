@@ -12,7 +12,7 @@ struct PlanetArea: View {
     var planetModel: PlanetModel
     var planetView: PlanetView
     var planets: [Planet]
-    
+
 
     var body: some View {
         VStack {

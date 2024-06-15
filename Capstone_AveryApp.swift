@@ -9,13 +9,15 @@ import SwiftUI
 
 @main
 struct Capstone_AveryApp: App {
+    @State private var currentStyle: ImmersionStyle = .full
+
     var body: some Scene {
         WindowGroup {
             ContentView()
         }.windowStyle(.plain)
 
-        ImmersiveSpace(id: "ImmersiveSpace") {
+        ImmersiveSpace(id: "solarSystem") {
             ImmersiveView()
-        }.immersionStyle(selection: .constant(.full), in: .full)
+        }.immersionStyle(selection: $currentStyle, in: .full)
     }
 }

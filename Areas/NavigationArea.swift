@@ -13,18 +13,22 @@ struct NavigationArea: View {
     var planets: [Planet]
 
     var body: some View {
-        VStack {
-            Text("The Solar System")
-                .font(Font.custom("Avenir", size: 100))
+        ZStack {
+            Image("Sun2")
+                .resizable()
+            VStack {
+                Text("The Solar System")
+                    .font(Font.custom("Avenir", size: 150))
 
-            HStack(spacing: 25) {
-                ForEach(Area.allCases) { area in
-                    NavigationLink(destination: destinationView(for: area)) {
-                        Label(area.name, systemImage: "chevron.right")
-                            .monospaced()
-                            .font(.title)
+                HStack(spacing: 25) {
+                    ForEach(Area.allCases) { area in
+                        NavigationLink(destination: destinationView(for: area)) {
+                            Label(area.name, systemImage: "chevron.right")
+                                .monospaced()
+                                .font(.title)
+                        }
+                        .controlSize(.extraLarge)
                     }
-                    .controlSize(.extraLarge)
                 }
             }
         }
@@ -39,4 +43,9 @@ struct NavigationArea: View {
             SystemArea()
         }
     }
+}
+
+
+#Preview(immersionStyle: .full) {
+    NavigationArea(planetModel: PlanetModel(), planetView: PlanetView(planet: Planet(planetName: "", planetInfo: "")), planets: [])
 }
