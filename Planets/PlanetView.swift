@@ -10,6 +10,8 @@ import RealityKit
 import RealityKitContent
 
 struct PlanetView: View {
+    @State private var rotationAngle: Double = 360.0
+    @State private var isAnimating: Bool = false
     var planet: Planet
 
     var planets: [Planet] = [
@@ -59,20 +61,45 @@ struct PlanetView: View {
                         .scaledToFill()
                         .overlay {
                             Model3D(named: planet.model, bundle: realityKitContentBundle)
-                            
-                                .padding()
+                                .padding(.bottom, 50)
+                                .rotation3DEffect(
+                                    Angle.degrees(rotationAngle),
+                                    axis: (x: 0.0, y: 1.0, z: 0.0),
+                                    anchor: .center
+
+                                )
+
+//                                .onAppear {
+//                                    startRotation()
+//                                }
+//                                .onChange(of: planet.model) {
+//                                    startRotation()
+//                                }
                             VStack {
                                 Text(planet.planetName)
-                                    .font(Font.custom("Avneir", size: 35))
-                                    .padding()
+                                    .font(.extraLargeTitle)
+                                    .accessibilityLabel(Text("This is \(planet.planetName)"))
+                                    .padding(.bottom, 300)
                                 Text(planet.planetInfo)
-                                    .font(Font.custom("Avneir", size: 25))
+                                    .font(.title)
+                                    .accessibilityLabel(Text("Here we have the info of \(planet.planetInfo)"))
+                                    .padding(25)
+                                    .background(
+                                        Rectangle()
+                                            .fill(Color.black.opacity(0.25))
+                                            .clipShape(.rect(cornerRadius: 30))
+                                    )
                             }
-                        } .padding(.bottom, 100)
+                        } .padding(.bottom, 200)
                 }
             }
         }
         Spacer()
+    }
+    private func startRotation() {
+        withAnimation(Animation.linear(duration: 10).repeatForever()) {
+            rotationAngle = 360.0
+        }
     }
 }
 

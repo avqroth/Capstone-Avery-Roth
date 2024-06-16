@@ -15,9 +15,9 @@ enum Area : String, CaseIterable, Identifiable {
     var name: String {
         switch self {
         case .planets:
-            return "Planets"
+            return "Planet List"
         case .system:
-            return "System"
+            return "Solar System Model"
         }
     }
 }

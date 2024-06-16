@@ -15,9 +15,11 @@ struct NavigationArea: View {
         ZStack {
             Image("Sun")
                 .resizable()
+                .opacity(0.25)
             VStack {
                 Text("The Solar System")
-                    .font(Font.custom("Avenir", size: 150))
+                    .font(Font.custom("Helvetica Neue", size: 150))
+                    .accessibilityLabel(Text("The app's name is The Solar System"))
 
                 HStack(spacing: 25) {
                     ForEach(Area.allCases) { area in
@@ -25,7 +27,9 @@ struct NavigationArea: View {
                             Label(area.name, systemImage: "chevron.right")
                                 .monospaced()
                                 .font(.title)
+                                .foregroundStyle(Color.black)
                         }.controlSize(.extraLarge)
+                            .foregroundStyle(Color.orange.opacity(0.75))
                     }
                 }
             }
