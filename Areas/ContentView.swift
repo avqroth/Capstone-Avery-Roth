@@ -19,7 +19,7 @@ struct ContentView: View {
     var body: some View {
         VStack {
             NavigationStack {
-                NavigationArea(planetModel: PlanetModel(), planetView: PlanetView(planet: Planet(planetName: "", planetInfo: "")), planets: [])
+                NavigationArea(planetView: PlanetView(planet: Planet(planetName: "", planetInfo: "", model: "")), planets: [])
             }
         }
     }

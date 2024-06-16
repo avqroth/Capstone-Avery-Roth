@@ -17,7 +17,7 @@ struct Capstone_AveryApp: App {
         }.windowStyle(.plain)
 
         ImmersiveSpace(id: "solarSystem") {
-            ImmersiveView()
+            StarFieldView()
         }.immersionStyle(selection: $currentStyle, in: .full)
     }
 }

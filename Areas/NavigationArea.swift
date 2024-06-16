@@ -8,13 +8,12 @@
 import SwiftUI
 
 struct NavigationArea: View {
-    var planetModel: PlanetModel
     var planetView: PlanetView
     var planets: [Planet]
 
     var body: some View {
         ZStack {
-            Image("Sun2")
+            Image("Sun")
                 .resizable()
             VStack {
                 Text("The Solar System")
@@ -26,8 +25,7 @@ struct NavigationArea: View {
                             Label(area.name, systemImage: "chevron.right")
                                 .monospaced()
                                 .font(.title)
-                        }
-                        .controlSize(.extraLarge)
+                        }.controlSize(.extraLarge)
                     }
                 }
             }
@@ -38,7 +36,7 @@ struct NavigationArea: View {
     private func destinationView(for area: Area) -> some View {
         switch area {
         case .planets:
-            PlanetArea(planetModel: planetModel, planetView: planetView, planets: [])
+            PlanetArea(planetView: planetView, planets: [], planet: Planet(planetName: "", planetInfo: "", model: ""))
         case .system:
             SystemArea()
         }
@@ -47,5 +45,5 @@ struct NavigationArea: View {
 
 
 #Preview(immersionStyle: .full) {
-    NavigationArea(planetModel: PlanetModel(), planetView: PlanetView(planet: Planet(planetName: "", planetInfo: "")), planets: [])
+    NavigationArea(planetView: PlanetView(planet: Planet(planetName: "", planetInfo: "", model: "")), planets: [])
 }

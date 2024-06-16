@@ -11,7 +11,6 @@ import RealityKitContent
 
 struct StarFieldView: View {
     var body: some View {
-        Model3D(named: "Immersive", bundle: realityKitContentBundle)
         RealityView { content in
 
             guard let resource = try? await TextureResource(named: "StarView") else {
