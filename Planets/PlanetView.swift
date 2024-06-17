@@ -68,7 +68,14 @@ struct PlanetView: View {
                                     anchor: .center
 
                                 )
-
+//                                .padding(.bottom, 50)
+//                                .rotation3DEffect(
+//                                    Angle.degrees(rotationAngle),
+//                                    axis: (x: 0.0, y: 1.0, z: 0.0),
+//                                    anchor: .center
+//
+//                                )
+//                            
 //                                .onAppear {
 //                                    startRotation()
 //                                }
