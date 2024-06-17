@@ -13,26 +13,24 @@ struct SystemAreaToggle: View {
     @State private var isShowingImmersive = false
 
     var body: some View {
-        Button {
-            Task {
-                if isShowingImmersive {
+        HStack {
+            Button("View Solar System") {
+                Task {
+                    _ = await openImmersiveScene(id: "solarSystem")
+                    isShowingImmersive = true
+                }
+            }.padding()
+
+            Button("Exit Solar System") {
+                Task {
                     await dismissImmersiveScene()
-                } else {
-                    await openImmersiveScene(id: "solarSystem")
+                    isShowingImmersive = false
                 }
             }
-        } label: {
-            if isShowingImmersive {
-                Label(
-                    "Close Solar System",
-                    systemImage: "arrow.down.right.and.arrow.up.left")
-            } else {
-                Text("View Solar System")
-            }
-        }.font(.custom("Avenir", size: 25))
-            .padding()
+        }.font(.title)
     }
 }
+
 
 #Preview {
     SystemAreaToggle()

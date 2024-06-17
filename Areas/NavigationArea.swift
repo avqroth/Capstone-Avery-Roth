@@ -21,15 +21,15 @@ struct NavigationArea: View {
                     .font(Font.custom("Helvetica Neue", size: 150))
                     .accessibilityLabel(Text("The app's name is The Solar System"))
 
-                HStack(spacing: 25) {
+                HStack(spacing: 60) {
                     ForEach(Area.allCases) { area in
                         NavigationLink(destination: destinationView(for: area)) {
                             Label(area.name, systemImage: "chevron.right")
                                 .monospaced()
-                                .font(.title)
-                                .foregroundStyle(Color.black)
-                        }.controlSize(.extraLarge)
-                            .foregroundStyle(Color.orange.opacity(0.75))
+                                .font(.largeTitle)
+                                .foregroundStyle(.primary)
+                        }
+                        .controlSize(.extraLarge)
                     }
                 }
             }

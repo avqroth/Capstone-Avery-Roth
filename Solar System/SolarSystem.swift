@@ -11,7 +11,7 @@ import RealityKitContent
 
 struct SolarSystem: View {
     var body: some View {
-        StarFieldView()
+        ImmersiveArea()
     }
 }
 

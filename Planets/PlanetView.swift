@@ -103,13 +103,3 @@ struct PlanetView: View {
     }
 }
 
-//struct CustomView: View {
-//    var body: some view {
-//        Model3D(named: “FileName”) { phase in   //file should be in proj
-//        }
-//    }
-//}
-//
-//Model3d .overlay { … } // overlay on SwiftUI 3d objects
-//Model3d .rotation3dEffect( Rotation3D(angle: …., axis: …)) // apply rotation
-
