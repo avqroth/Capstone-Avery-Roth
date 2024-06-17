@@ -8,7 +8,7 @@
 import SwiftUI
 
 @main
-struct Capstone_AveryApp: App {
+struct Solar_SystemApp: App {
     @State private var currentStyle: ImmersionStyle = .full
 
     var body: some Scene {
