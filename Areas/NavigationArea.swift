@@ -19,7 +19,7 @@ struct NavigationArea: View {
             VStack {
                 Text("The Solar System")
                     .font(Font.custom("Helvetica Neue", size: 150))
-                    .accessibilityLabel(Text("The app's name is The Solar System"))
+                    .accessibilityLabel(Text("App's opening window."))
 
                 HStack(spacing: 60) {
                     ForEach(Area.allCases) { area in

@@ -27,6 +27,7 @@ struct ImmersiveArea: View {
         Model3D(named: "Planets", bundle: realityKitContentBundle)
 
         RealityView { content in
+//            Tried to add lighting, sadly I wasn't able to figure out how to add it... I apologize if it is a little dark...
             if let scene = try? await
                 Entity(named: "solarSystem") {  content.add(scene)
 
