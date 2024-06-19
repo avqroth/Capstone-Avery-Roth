@@ -14,11 +14,8 @@ struct StarFieldView: View {
 
         RealityView { content in
 
-            if let resource = try? await TextureResource(named: "StarView") {
-                guard let resource = try? await EnvironmentResource(named: "Sunlight") else { return }
-                let iblComponent = ImageBasedLightComponent(source: .single(resource), intensityExponent: 0.25)
-                scene.components.set(iblComponent)
-                scene.components.set(ImageBasedLightReceiverComponent(imageBasedLight: scene))
+            guard let resource = try? await TextureResource(named: "StarView") else {
+                fatalError("Could not load texture...")
             }
             var material = UnlitMaterial()
             material.color = .init(texture: .init(resource))
